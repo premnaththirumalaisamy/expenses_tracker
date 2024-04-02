@@ -12,44 +12,50 @@ class MainScreen extends StatelessWidget {
         child: Column(
           children: [
             Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Stack(
-                  alignment: Alignment.center,
+                Row(
                   children: [
-                    Container(
-                      width: 50,
-                      height: 50,
-                      decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: Colors.yellow[700]
-                      ),
-                    ),
-                    Icon(
-                        CupertinoIcons.person_fill,
-                        color: Colors.yellow[800],
-                    )
-                  ],
+                    Stack(
+                      alignment: Alignment.center,
+                      children: [
+                        Container(
+                          width: 50,
+                          height: 50,
+                          decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: Colors.yellow[700]
+                          ),
+                        ),
+                        Icon(
+                            CupertinoIcons.person_fill,
+                            color: Colors.yellow[800],
+                        )
+                      ],
         ),
-                const SizedBox(width: 8),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Welcome!',
-                        style: TextStyle(
-                            fontSize: 12,
-                          color: Theme.of(context).colorScheme.outline
-                        ),
+                    const SizedBox(width: 8),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Welcome!',
+                            style: TextStyle(
+                                fontSize: 12,
+                              color: Theme.of(context).colorScheme.outline
+                            ),
+                          ),
+                          Text(
+                            'Premnath',
+                            style: TextStyle(
+                                fontSize: 15,
+                                fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
                       ),
-                      Text(
-                        'Premnath',
-                        style: TextStyle(
-                            fontSize: 15,
-                            fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ],
-                  ),
+                  ],
+                ),
+                Icon(CupertinoIcons.settings)
               ],
             )
           ],
