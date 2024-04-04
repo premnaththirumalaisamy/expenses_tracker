@@ -10,6 +10,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey.shade200,
       bottomNavigationBar: ClipRRect(
         borderRadius: const BorderRadius.vertical(
             top:Radius.circular(20)

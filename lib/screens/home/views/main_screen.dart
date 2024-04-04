@@ -168,7 +168,7 @@ class MainScreen extends StatelessWidget {
                                 ),
                               ),
                               Text(
-                                'Rs 2,500.00',
+                                '₹ 2,500.00',
                                 style: TextStyle(
                                   fontSize: 12,
                                   color: Colors.white,
@@ -184,7 +184,7 @@ class MainScreen extends StatelessWidget {
                 ],
               ),
             ),
-            const SizedBox(height: 20,),
+            const SizedBox(height: 40,),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -210,7 +210,79 @@ class MainScreen extends StatelessWidget {
                 )
               ],
             ),
-
+            const SizedBox(height: 20,),
+            Expanded(
+              child: ListView.builder(
+                itemCount: 4,
+                  itemBuilder: (context,int i){
+                    return Padding(
+                      padding: const EdgeInsets.only(bottom:16.0),
+                      child: Container(
+                        padding: const EdgeInsets.all(12.0),
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(25.0),
+                            color: Colors.white70
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Row(
+                              children: [
+                                Stack(
+                                  alignment: Alignment.center,
+                                  children:[ Container(
+                                    width:50,
+                                    height: 50,
+                                    decoration: const BoxDecoration(
+                                      color: Colors.deepOrangeAccent,
+                                      shape: BoxShape.circle,
+                                    ),
+                                    child: const Icon(
+                                      Icons.lunch_dining,
+                                      size: 25,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                ]
+                                ),
+                                const SizedBox(width: 12,),
+                                 Text(
+                                  'Food',
+                                  style: TextStyle(
+                                      fontSize: 14,
+                                      color: Theme.of(context).colorScheme.onBackground,
+                                      fontWeight: FontWeight.w500
+                                  ),
+                                ),
+                              ],
+                            ),
+                            Column(
+                              children: [
+                                Text(
+                                  '- ₹45.00',
+                                  style: TextStyle(
+                                      fontSize: 14,
+                                      color:Theme.of(context).colorScheme.onBackground,
+                                      fontWeight: FontWeight.w400
+                                  ),
+                                ),
+                                Text(
+                                  'Today',
+                                  style: TextStyle(
+                                      fontSize: 12,
+                                      color:Theme.of(context).colorScheme.outline,
+                                      fontWeight: FontWeight.w400
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                    );
+                  }
+              ),
+            )
           ],
         ),
       ),
