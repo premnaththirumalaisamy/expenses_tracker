@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -44,7 +46,7 @@ class MainScreen extends StatelessWidget {
                               color: Theme.of(context).colorScheme.outline
                             ),
                           ),
-                          Text(
+                          const Text(
                             'Premnath',
                             style: TextStyle(
                                 fontSize: 15,
@@ -55,8 +57,132 @@ class MainScreen extends StatelessWidget {
                       ),
                   ],
                 ),
-                Icon(CupertinoIcons.settings)
+                const Icon(CupertinoIcons.settings)
               ],
+            ),
+            const SizedBox(height: 20,),
+            Container(
+              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.width/2,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(25),
+                shape: BoxShape.rectangle,
+                gradient: LinearGradient(colors: [
+                  Theme.of(context).colorScheme.primary,
+                  Theme.of(context).colorScheme.secondary,
+                  Theme.of(context).colorScheme.tertiary,
+                ],
+                    transform: const GradientRotation(pi/4)
+                ),
+              boxShadow: [BoxShadow(
+                blurRadius: 2,
+                offset: const Offset(5, 5),
+                color: Colors.grey.shade400
+              )]),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Text(
+                      'Total Balance',
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: Colors.white,
+                      fontWeight: FontWeight.w400
+                    ),
+                  ),
+                  const SizedBox(height: 12,),
+                  const Text(
+                      '₹ 4,800.00',
+                      style: TextStyle(
+                          fontSize: 40,
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold
+                      )
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 12,vertical: 20),
+                    child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Row(
+                        children: [
+                          Container(
+                            width: 20,
+                            height: 20,
+                            decoration: const BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: Colors.white30
+                            ),
+                            child: const Icon(
+                              CupertinoIcons.down_arrow,
+                              color: Colors.greenAccent,
+                              size: 12,
+                            ),
+                          ),
+                          const SizedBox(width: 12),
+                          const Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'Income',
+                                style: TextStyle(
+                                    fontSize: 12,
+                                    color: Colors.white
+                                ),
+                              ),
+                              Text(
+                                '₹ 2,500.00',
+                                style: TextStyle(
+                                    fontSize: 12,
+                                    color: Colors.white
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          Container(
+                            width: 20,
+                            height: 20,
+                            decoration: const BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: Colors.white30
+                            ),
+                            child: const Icon(
+                              CupertinoIcons.up_arrow,
+                              color: Colors.redAccent,
+                              size: 12,
+                            ),
+                          ),
+                          const SizedBox(width: 12),
+                          const Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'Expenses',
+                                style: TextStyle(
+                                    fontSize: 12,
+                                    color: Colors.white
+                                ),
+                              ),
+                              Text(
+                                'Rs 2,500.00',
+                                style: TextStyle(
+                                  fontSize: 12,
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ],
+                    ),
+                  )
+                ],
+              ),
             )
           ],
         ),
