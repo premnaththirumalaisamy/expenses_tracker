@@ -2,6 +2,8 @@ import 'dart:math';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:expenses_tracker/data/data.dart';
 
 class MainScreen extends StatelessWidget {
   const MainScreen({super.key});
@@ -213,70 +215,69 @@ class MainScreen extends StatelessWidget {
             const SizedBox(height: 20,),
             Expanded(
               child: ListView.builder(
-                itemCount: 4,
+                itemCount: transactionData.length,
                   itemBuilder: (context,int i){
                     return Padding(
                       padding: const EdgeInsets.only(bottom:16.0),
                       child: Container(
-                        padding: const EdgeInsets.all(12.0),
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(25.0),
                             color: Colors.white70
                         ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Row(
-                              children: [
-                                Stack(
-                                  alignment: Alignment.center,
-                                  children:[ Container(
-                                    width:50,
-                                    height: 50,
-                                    decoration: const BoxDecoration(
-                                      color: Colors.deepOrangeAccent,
-                                      shape: BoxShape.circle,
+                        child: Padding(
+                          padding: const EdgeInsets.all(12.0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Row(
+                                children: [
+                                  Stack(
+                                    alignment: Alignment.center,
+                                    children:[
+                                      Container(
+                                        width:50,
+                                        height: 50,
+                                        decoration: BoxDecoration(
+                                          color: transactionData[i]['color'],
+                                          shape: BoxShape.circle,
+                                        ),
+                                      ),
+                                      transactionData[i]['icon']
+                                    ]
+                                  ),
+                                  const SizedBox(width: 12,),
+                                   Text(
+                                     transactionData[i]['category'],
+                                    style: TextStyle(
+                                        fontSize: 14,
+                                        color: Theme.of(context).colorScheme.onBackground,
+                                        fontWeight: FontWeight.w500
                                     ),
-                                    child: const Icon(
-                                      Icons.lunch_dining,
-                                      size: 25,
-                                      color: Colors.white,
+                                  ),
+                                ],
+                              ),
+                              Column(
+                                children: [
+                                  Text(
+                                    transactionData[i]['totalAmount'],
+                                    style: TextStyle(
+                                        fontSize: 14,
+                                        color:Theme.of(context).colorScheme.onBackground,
+                                        fontWeight: FontWeight.w400
                                     ),
                                   ),
-                                ]
-                                ),
-                                const SizedBox(width: 12,),
-                                 Text(
-                                  'Food',
-                                  style: TextStyle(
-                                      fontSize: 14,
-                                      color: Theme.of(context).colorScheme.onBackground,
-                                      fontWeight: FontWeight.w500
+                                  Text(
+                                    transactionData[i]['date'],
+                                    style: TextStyle(
+                                        fontSize: 12,
+                                        color:Colors.grey.shade600,
+                                        fontWeight: FontWeight.w400
+                                    ),
                                   ),
-                                ),
-                              ],
-                            ),
-                            Column(
-                              children: [
-                                Text(
-                                  '- ₹45.00',
-                                  style: TextStyle(
-                                      fontSize: 14,
-                                      color:Theme.of(context).colorScheme.onBackground,
-                                      fontWeight: FontWeight.w400
-                                  ),
-                                ),
-                                Text(
-                                  'Today',
-                                  style: TextStyle(
-                                      fontSize: 12,
-                                      color:Theme.of(context).colorScheme.outline,
-                                      fontWeight: FontWeight.w400
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ],
+                                ],
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     );
